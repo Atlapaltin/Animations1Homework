@@ -112,8 +112,8 @@ class StatsView @JvmOverloads constructor(
         if (data.isEmpty()) {
             return
         }
-
-        var startFrom = -90F
+//-90F
+        var startFrom = progress * 360F
         for ((index, datum) in data.withIndex()) {
             val angle = 360F * datum
             paint.color = colors.getOrNull(index) ?: randomColor()
@@ -141,7 +141,7 @@ class StatsView @JvmOverloads constructor(
                 progress = anim.animatedValue as Float
                 invalidate()
             }
-            duration = 500
+            duration = 800
             interpolator = LinearInterpolator()
         }.also {
             it.start()
